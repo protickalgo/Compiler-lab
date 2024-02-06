@@ -1,0 +1,22 @@
+#include <iostream>
+
+
+int main()
+{
+    std::string x;
+    std::cin >> x;
+    int count = 0;
+
+    for (int i = 0; i <x.length(); i++)
+    {
+        if ( x[i] == 37 || x[i] == 42 || x[i] == 43 || x[i] == 45 || x[i] == 47 || x[i] == 61)
+          {
+              count++;
+               std::cout << "operator " << count << ": " << x[i] << std::endl;
+          }
+    }
+
+
+
+    return 0;
+}

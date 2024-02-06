@@ -1,0 +1,62 @@
+#include <iostream>
+
+
+int main()
+{
+    std::string x;
+    std::cin >> x;
+    int y = x.length();
+    int c = 0;
+
+        if (x[0] == 45)
+        {
+
+         for (int i = 1; i < x.length(); i++)
+            {
+
+                if (x[i] >= 48 && x[i] <= 57 || x[i] == 46 )
+                {
+                    c++;
+                if (i == (y-1 )&& c >= 0)
+                std::cout <<"numeric constant"<<std::endl;
+                }
+                else
+                {
+                    if (x[i] != 46)
+                std::cout << "not numeric constant"<<std::endl;
+                break;
+
+                }
+            }
+
+        }
+
+
+
+        else
+        {
+
+         for (int i = 0; i < x.length(); i++)
+            {
+
+                if (x[i] >= 48 && x[i] <= 57 || x[i] == 46 )
+                {
+                    c++;
+                if (i == (y-1 )&& c >= 0)
+                std::cout <<"numeric constant"<<std::endl;
+                }
+                else
+                {
+                    if (x[i] != 46)
+                std::cout << "not numeric constant"<<std::endl;
+                break;
+
+                }
+            }
+
+        }
+
+
+
+    return 0;
+}

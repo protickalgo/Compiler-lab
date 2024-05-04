@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+
+bool isValidIdentifier(std::string literal)
+{
+    if (literal[0] >= 65 && literal[0] <= 90 || literal[0] >= 97 && literal[0] <= 122 || literal[0] == 95)
+    {
+        for (char value : literal)
+        {
+            if (!(value >= 65 && value <= 90 || value >= 97 && value <= 122 || value == 95 || value >= 48 && value <= 57))
+            {
+                if (value == ' ')
+                    std::cout << "Invalid Character 'Space'" << std::endl;
+                else
+                    std::cout << "Invalid Character " << value << std::endl;
+                return false;
+            }
+        }
+        return true;
+    }
+    else
+    {
+        std::cout << "Invalid Character " << literal[0] << std::endl;
+        return false;
+    }
+}
+
+bool check(std::string literal)
+{
+    literal += ",";
+    std::ifstream fin("/mnt/A0C60ED1C60EA79C/C++/fstream/keywords.txt");
+    if (fin.is_open())
+    {
+        std::string ch;
+        int i = 0;
+        while (!fin.eof())
+        {
+            fin >> ch;
+            if (ch == literal)
+            {
+                std::cout << "Input matches with C++ keyword" << std::endl;
+                return false;
+            }
+        }
+        return true;
+    }
+    else
+    {
+        std::cout << "file is failed to open" << std::endl;
+        return false;
+    }
+}
+
+int main()
+{
+    std::string literal;
+    getline(std::cin, literal);
+
+    if (isValidIdentifier(literal) && check(literal))
+        std::cout << 1 << std::endl;
+    else
+        std::cout << 0 << std::endl;
+}
+

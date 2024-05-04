@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector <char> firstName;
+    vector <char> lastName;
+
+    cout << "First Name: ";
+    char c;
+    while (cin.get(c) && c != '\n')
+        firstName.push_back(c);
+
+    cout << "Last Name: ";
+    while (cin.get(c) && c != '\n')
+        lastName.push_back(c);
+
+    cout << "Your full name is: ";
+    for (char c : firstName)
+        cout << c;
+
+    cout << " ";
+    for (char c : lastName)
+        cout << c;
+
+    cout << endl;
+
+    return 0;
+}
